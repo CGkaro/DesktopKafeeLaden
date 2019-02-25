@@ -25,7 +25,7 @@ export class Homepage extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("FBCONFIGGGGGGG", state.categories);
+  console.log("FBCONFIGGGGGGG", state.categories); //COMMETNOOTKNTGKNE
   console.log("HOMEPAGE STATE", Object.values(state.firebase));
 
   return {
