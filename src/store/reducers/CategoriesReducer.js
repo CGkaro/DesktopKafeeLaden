@@ -1,4 +1,3 @@
-import fbConfig from "../../config/fbConfig";
 const initState = {
   categories: [
     {
@@ -30,6 +29,8 @@ const categoryReducer = (state = initState, action) => {
     case "VIEW_CATEGORIES":
       console.log("view_cat", action.payload);
       return action.payload;
+    case "DELETE_CATEGORIES":
+      console.log("view_cat", action.payload);
 
     default:
       console.log("default", state);

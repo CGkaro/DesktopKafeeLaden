@@ -9,7 +9,6 @@ export class Homepage extends Component {
   componentDidMount() {
     this.props.fetchCategories();
   }
-
   render() {
     console.log("HOMEPAGE PROPS", this.props);
     const { categories } = this.props;
@@ -17,7 +16,6 @@ export class Homepage extends Component {
       <div>
         <nav />
         <Sidebar />
-
         <CategoriesList categories={categories} />
       </div>
     );
@@ -25,7 +23,7 @@ export class Homepage extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("FBCONFIGGGGGGG", state.categories); //COMMETNOOTKNTGKNE
+  console.log("FBCONFIGGGGGGG", state); //COMMETNOOTKNTGKNE
   console.log("HOMEPAGE STATE", Object.values(state.firebase));
 
   return {

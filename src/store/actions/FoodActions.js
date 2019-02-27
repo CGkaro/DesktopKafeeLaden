@@ -1,46 +1,48 @@
 import fbConfig from "../../config/fbConfig";
 
-export const createCategory = category => {
+export const createFood = category => {
   console.log("createcatreducer", category);
   fbConfig
     .ref()
-    .child("Category/" + category.Id)
+    .child("Foods/" + category.Id)
 
     .set(category);
   return (dispatch, getState) => {
-    dispatch({ type: "CREATE_CATEGORY", category });
+    dispatch({ type: "CREATE_FOOD", category });
   };
 };
 
-export const viewCategories = () => {
+export const viewFoods = () => {
   return function(dispatch) {
     fbConfig
       .ref()
-      .child("Category")
+      .child("Foods")
       .on("value", snapshot => {
         dispatch({
-          type: "VIEW_CATEGORIES",
+          type: "VIEW_FOODS",
           payload: snapshot.val()
         });
       });
   };
 };
-export const fetchCategories = () => async dispatch => {
+export const fetchFoods = () => async dispatch => {
+  console.log("ENTERED/////////");
   fbConfig
     .ref()
-    .child("Category")
+    .child("Foods")
     .on("value", snapshot => {
+      //console.log("ALALALLAALALALALALLA", snapshot.val());
       dispatch({
-        type: "VIEW_CATEGORIES",
-        payload: snapshot.val()
+        type2: "VIEW_FOODS",
+        payload2: snapshot.val()
       });
     });
 };
-export const deleteCategories = completeToDoId => async dispatch => {
+export const deleteFoods = completeToDoId => async dispatch => {
   console.log(completeToDoId);
   fbConfig
     .ref()
-    .child("Category")
+    .child("Foods")
     .child(completeToDoId)
     .remove();
 };
