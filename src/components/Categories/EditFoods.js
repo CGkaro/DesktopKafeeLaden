@@ -2,17 +2,19 @@ import React, { Component } from "react";
 import { Modal, Button, Input, Icon } from "react-materialize";
 import { connect } from "react-redux";
 import { editFoods } from "../../store/actions/CategoriesActions";
-import { withFirebase } from "react-redux-firebase";
-import fbConfig from "../../config/fbConfig";
 
 class EditFoods extends Component {
   state = {
     Name: "",
-    Image: ""
+    Image: "",
+    Description: "",
+    Discount: "",
+    MenuId: "",
+    Price: ""
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.editCategory(this.state);
+    this.props.editFoods(this.state);
   };
   handleChange = e => {
     this.setState({
@@ -40,7 +42,7 @@ class EditFoods extends Component {
         </div>
 
         <Input
-          label="Food name"
+          label="Food Name"
           id="Name"
           validate
           onChange={this.handleChange}
@@ -59,7 +61,7 @@ class EditFoods extends Component {
           <Icon>account_circle</Icon>
         </Input>
         <Input
-          label="Food description"
+          label="Food Description"
           id="Description"
           validate
           onChange={this.handleChange}
@@ -67,7 +69,7 @@ class EditFoods extends Component {
           <Icon>account_circle</Icon>
         </Input>
         <Input
-          label="Food discount"
+          label="Food Discount"
           id="Discount"
           validate
           onChange={this.handleChange}
@@ -96,7 +98,7 @@ class EditFoods extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    editCategory: category => dispatch(editFoods(category))
+    editFoods: category => dispatch(editFoods(category))
   };
 };
 

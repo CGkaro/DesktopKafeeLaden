@@ -39,7 +39,7 @@ class FoodsCard extends Component {
                   </div>
                 }
               >
-                <EditFoods />
+                <EditFoods data={this.props.category.Id} />
               </Modal>
             </div>
 
