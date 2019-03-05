@@ -29,6 +29,10 @@ const categoryReducer = (state = initState, action) => {
     case "VIEW_CATEGORIES":
       console.log("view_cat", action.payload);
       return action.payload;
+    case "VIEW_FOODS":
+      console.log("FOODS", action.payload);
+      return action.payload;
+
     case "DELETE_CATEGORIES":
       console.log("view_cat", action.payload);
 

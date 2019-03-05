@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { fetchFoods } from "../../store/actions/FoodActions";
+import { fetchFoods } from "../../store/actions/CategoriesActions";
 import { connect } from "react-redux";
 import CategoryCard from "../Categories/CategoryCard";
 import { Link } from "react-router-dom";
+import CategoriesList from "../layout/CategoriesList";
+import Sidebar from "../layout/Sidebar";
+import FoodsCard from "../Categories/FoodsCard";
 
 class FoodList extends Component {
   componentWillMount() {
@@ -10,13 +13,19 @@ class FoodList extends Component {
   }
 
   render() {
-    console.log("FOODLIST PROPS", this.props);
-    const { foods } = this.props;
+    const categories = this.props.categories;
+    console.log("FOODLIST Props", this.props);
+    console.log("FOODLIST Props2", this.props.categories);
+
     return (
       <div>
+        <Sidebar />
         <div className="wrapper" style={{ paddingLeft: "300px" }}>
           <div className="row">
-            <p> {this.props} </p>
+            {categories &&
+              categories.map(category => {
+                return <FoodsCard category={category} key={category.Id} />;
+              })}
           </div>
         </div>
       </div>
@@ -24,11 +33,11 @@ class FoodList extends Component {
   }
 }
 const mapStateToProps = state => {
-  console.log("////FBCONFIGFOODS", state); //COMMETNOOTKNTGKNE
-  console.log("////FOODLIST STATE", Object.values(state.data2));
+  console.log("FOODLISR", state); //COMMETNOOTKNTGKNE
+  console.log("FOODLIST STATE", Object.values(state.firebase));
 
   return {
-    Foods: Object.values(state.data2)
+    categories: Object.values(state.firebase)
   };
 };
 export default connect(

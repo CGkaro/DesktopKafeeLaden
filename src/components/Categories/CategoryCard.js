@@ -4,11 +4,14 @@ import {
   Button,
   Row,
   Dropdown,
-  NavItem,
+  Input,
   Divider
 } from "react-materialize";
 import { connect } from "react-redux";
 import { deleteCategories } from "../../store/actions/CategoriesActions";
+
+import CreateCategory from "./CreateCategory";
+import EditCategories from "./EditCategories";
 
 class CategoryCard extends Component {
   render() {
@@ -20,9 +23,9 @@ class CategoryCard extends Component {
         <div className="card small">
           <div className="card-image waves-effect waves-block waves-light  ">
             <img src={this.props.category.Image} />
+
             <span className="card-title">{this.props.category.Name}</span>
           </div>
-          <p id="contentCard">jngvlsnwevl</p>
 
           <div className="card-action">
             <div className="right-align" id="editCardButton">
@@ -36,8 +39,13 @@ class CategoryCard extends Component {
                     </Button>
                   </div>
                 }
+                actions={
+                  <div>
+                    <Button>Edit</Button>
+                  </div>
+                }
               >
-                Here will be a form for editing
+                <EditCategories data={this.props.category.Id} />
               </Modal>
             </div>
 

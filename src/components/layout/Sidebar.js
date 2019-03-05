@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SideNav, SideNavItem, Button } from "react-materialize";
+import { Link } from "react-router-dom";
 
 export class SideBar extends Component {
   render() {
@@ -26,12 +27,14 @@ export class SideBar extends Component {
             </div>
           </li>
           <li>
-            <a href="#!">
+            <Link to="/Homepage">
               <i className="material-icons">cloud</i>Categories
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#!">Add user</a>
+            <Link to="/Food">
+              <i className="material-icons">cloud</i>Foods
+            </Link>
           </li>
           <li>
             <div className="divider" />

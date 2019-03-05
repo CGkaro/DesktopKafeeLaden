@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Sidebar from "../layout/Sidebar";
 import { connect } from "react-redux";
 import CategoriesList from "../layout/CategoriesList";
