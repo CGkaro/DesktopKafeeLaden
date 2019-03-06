@@ -19,8 +19,8 @@ export const viewFoods = () => {
       .child("Foods")
       .on("value", snapshot => {
         dispatch({
-          type: "VIEW_FOODS",
-          payload: snapshot.val()
+          type2: "VIEW_FOODS",
+          payload2: snapshot.val()
         });
       });
   };

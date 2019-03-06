@@ -1,15 +1,8 @@
 import React, { Component } from "react";
-import {
-  Modal,
-  Button,
-  Row,
-  Dropdown,
-  NavItem,
-  Divider
-} from "react-materialize";
+import { Modal, Button, Dropdown, Divider } from "react-materialize";
 import { connect } from "react-redux";
 import { deleteFood } from "../../store/actions/CategoriesActions";
-import { NavLink } from "react-router-dom";
+
 import EditFoods from "./EditFoods";
 
 class FoodsCard extends Component {

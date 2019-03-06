@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button, Input, Icon } from "react-materialize";
+import { Button, Input, Icon } from "react-materialize";
 import { connect } from "react-redux";
 import { editFoods } from "../../store/actions/CategoriesActions";
 

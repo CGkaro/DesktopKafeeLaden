@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { fetchFoods } from "../../store/actions/CategoriesActions";
 import { connect } from "react-redux";
-import CategoryCard from "../Categories/CategoryCard";
-import { Link } from "react-router-dom";
-import CategoriesList from "../layout/CategoriesList";
 import Sidebar from "../layout/Sidebar";
 import FoodsCard from "../Categories/FoodsCard";
+import { Redirect } from "react-router-dom";
 
 class FoodList extends Component {
   componentWillMount() {
@@ -14,8 +12,8 @@ class FoodList extends Component {
 
   render() {
     const categories = this.props.categories;
-    console.log("FOODLIST Props", this.props);
-    console.log("FOODLIST Props2", this.props.categories);
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to="/" />;
 
     return (
       <div>
@@ -33,11 +31,9 @@ class FoodList extends Component {
   }
 }
 const mapStateToProps = state => {
-  console.log("FOODLISR", state); //COMMETNOOTKNTGKNE
-  console.log("FOODLIST STATE", Object.values(state.firebase));
-
   return {
-    categories: Object.values(state.firebase)
+    categories: Object.values(state.firebase),
+    auth: state.firebaseAuth.auth
   };
 };
 export default connect(

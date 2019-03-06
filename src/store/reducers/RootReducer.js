@@ -11,7 +11,8 @@ const rootReducer = combineReducers({
   category: categoryReducer,
   firebase: data,
   foods: data2,
-  edere: foodsReducer
+  edere: foodsReducer,
+  firebaseAuth: firebaseReducer
 });
 
 export default rootReducer;

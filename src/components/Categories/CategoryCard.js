@@ -1,16 +1,7 @@
 import React, { Component } from "react";
-import {
-  Modal,
-  Button,
-  Row,
-  Dropdown,
-  Input,
-  Divider
-} from "react-materialize";
+import { Modal, Button, Dropdown, Divider } from "react-materialize";
 import { connect } from "react-redux";
 import { deleteCategories } from "../../store/actions/CategoriesActions";
-
-import CreateCategory from "./CreateCategory";
 import EditCategories from "./EditCategories";
 
 class CategoryCard extends Component {

@@ -34,7 +34,6 @@ const initState = {
 };
 
 const foodsReducer = (state = initState, action) => {
-  console.log("VIEWFOODSREDUCER CREATED", action.type2);
   switch (action.type2) {
     case "CREATE_FOOD":
       //console.log("created_cat", state);
@@ -46,12 +45,9 @@ const foodsReducer = (state = initState, action) => {
       return action.payload2;
     case "DELETE_FOOD":
       console.log("VIEWFOODSREDUCER", action.payload2);
-
     default:
-      console.log("default", state);
       return state;
   }
-  console.log(state);
 };
 
 export default foodsReducer;

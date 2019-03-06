@@ -19,10 +19,9 @@ const initState = {
 };
 
 const categoryReducer = (state = initState, action) => {
-  console.log("CATEGORY CREATED", action.type);
   switch (action.type) {
     case "CREATE_CATEGORY":
-      //console.log("created_cat", state);
+      console.log("created_cat", state);
       return {
         ...state
       };
@@ -30,17 +29,15 @@ const categoryReducer = (state = initState, action) => {
       console.log("view_cat", action.payload);
       return action.payload;
     case "VIEW_FOODS":
-      console.log("FOODS", action.payload);
+      console.log("view_foods", action.payload);
       return action.payload;
 
     case "DELETE_CATEGORIES":
       console.log("view_cat", action.payload);
 
     default:
-      console.log("default", state);
       return state;
   }
-  console.log(state);
 };
 
 export default categoryReducer;

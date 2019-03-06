@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Modal, Button, Input, Icon } from "react-materialize";
 import { connect } from "react-redux";
 import { createCategory } from "../../store/actions/CategoriesActions";
-import { withFirebase } from "react-redux-firebase";
-import fbConfig from "../../config/fbConfig";
 
 class CreateCategory extends Component {
   state = {

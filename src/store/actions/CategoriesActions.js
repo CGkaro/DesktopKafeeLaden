@@ -5,7 +5,6 @@ export const createCategory = category => {
   fbConfig
     .ref()
     .child("Category/" + category.Id)
-
     .set(category);
   return (dispatch, getState) => {
     dispatch({ type: "CREATE_CATEGORY", category });
@@ -56,14 +55,14 @@ export const deleteFood = completeToDoId => async dispatch => {
 };
 export const editCategory = category => {
   console.log("EditACtionReducer", category);
-  if (category.Name != "") {
+  if (category.Name !== "") {
     fbConfig
       .ref()
       .child("Category/" + category.Id)
       .child("Name")
       .set(category.Name);
   }
-  if (category.Image != "") {
+  if (category.Image !== "") {
     fbConfig
       .ref()
       .child("Category/" + category.Id)
@@ -78,42 +77,42 @@ export const editCategory = category => {
 
 export const editFoods = category => {
   console.log("EditACtionReducer", category);
-  if (category.Name != "") {
+  if (category.Name !== "") {
     fbConfig
       .ref()
       .child("Foods/" + category.Id)
       .child("Name")
       .set(category.Name);
   }
-  if (category.Image != "") {
+  if (category.Image !== "") {
     fbConfig
       .ref()
       .child("Foods/" + category.Id)
       .child("Image")
       .set(category.Image);
   }
-  if (category.Description != "") {
+  if (category.Description !== "") {
     fbConfig
       .ref()
       .child("Foods/" + category.Id)
       .child("Description")
       .set(category.Description);
   }
-  if (category.Discount != "") {
+  if (category.Discount !== "") {
     fbConfig
       .ref()
       .child("Foods/" + category.Id)
       .child("Discount")
       .set(category.Discount);
   }
-  if (category.MenuId != "") {
+  if (category.MenuId !== "") {
     fbConfig
       .ref()
       .child("Foods/" + category.Id)
       .child("MenuId")
       .set(category.MenuId);
   }
-  if (category.Price != "") {
+  if (category.Price !== "") {
     fbConfig
       .ref()
       .child("Foods/" + category.Id)

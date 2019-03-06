@@ -7,6 +7,7 @@ import FoodList from "./components/pages/FoodList";
 
 import AboutPage from "./components/pages/AboutPage";
 import "./css/cardcss.css";
+import SignupPage from "./components/pages/SignupPage";
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
         <Route path="/Homepage" component={Homepage} />
         <Route path="/About" component={AboutPage} />
         <Route path="/Food" component={FoodList} />
+        <Route path="/SignUp" component={SignupPage} />
       </Switch>
     </div>
   </Router>
