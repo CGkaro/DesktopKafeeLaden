@@ -49,8 +49,30 @@ class EditFoods extends Component {
         >
           <Icon>account_circle</Icon>
         </Input>
-
-        <Input type="file" label="File" placeholder="Upload Image" />
+        <div className="wrapper">
+          <div className="card small">
+            <div className="card-image waves-effect waves-block waves-light">
+              <img className="activator" src={this.props.category.Image} />
+            </div>
+            <div className="card-content">
+              <span className="card-title activator grey-text text-darken-4">
+                {this.props.category.Name}
+                <i className="material-icons right">more_vert</i>
+              </span>
+            </div>
+            <div className="card-reveal">
+              <span className="card-title grey-text text-darken-4">
+                Information
+                <i className="material-icons right">close</i>
+              </span>
+              <p>{this.props.category.Name}</p>
+              <p>{this.props.category.Description}</p>
+              <p>{this.props.category.Discount}</p>
+              <p>{this.props.category.Price}</p>
+              <p>{this.props.category.MenuId}</p>
+            </div>
+          </div>
+        </div>
 
         <Input
           label="Food Image"
