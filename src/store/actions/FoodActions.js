@@ -4,7 +4,7 @@ export const createFood = category => {
   console.log("createcatreducer", category);
   fbConfig
     .ref()
-    .child("Food/" + category.Id)
+    .child("Foods/" + category.Id)
     .set(category);
   return (dispatch, getState) => {
     dispatch({ type: "CREATE_CATEGORY", category });

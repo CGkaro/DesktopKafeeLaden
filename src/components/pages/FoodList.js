@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import Sidebar from "../layout/Sidebar";
 import FoodsCard from "../Categories/FoodsCard";
 import { Redirect } from "react-router-dom";
+import CreateFood from "../Categories/CreateFood";
+import "../../css/table.css";
 
 class FoodList extends Component {
   constructor(props) {
@@ -59,7 +61,7 @@ class FoodList extends Component {
           </div>
         </nav>
         <Sidebar />
-        <div className="wrapper" style={{ paddingLeft: "300px" }}>
+        <div className="custom-container" style={{ paddingLeft: "230px" }}>
           <table>
             <thead>
               <tr>
@@ -81,6 +83,8 @@ class FoodList extends Component {
             </tbody>
           </table>
         </div>
+
+        <CreateFood />
       </div>
     );
   }
