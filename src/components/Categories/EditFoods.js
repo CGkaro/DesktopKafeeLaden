@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Input, Icon } from "react-materialize";
 import { connect } from "react-redux";
-import { editFoods } from "../../store/actions/CategoriesActions";
+import { editFoods } from "../../store/actions/FoodActions";
 
 class EditFoods extends Component {
   state = {

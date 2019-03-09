@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Button, Dropdown, Divider } from "react-materialize";
 import { connect } from "react-redux";
-import { deleteFood } from "../../store/actions/CategoriesActions";
+import { deleteFood } from "../../store/actions/FoodActions";
 
 import EditFoods from "./EditFoods";
 

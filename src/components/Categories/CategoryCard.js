@@ -13,11 +13,9 @@ class CategoryCard extends Component {
       <div className="col s3 ">
         <div className="card small">
           <div className="card-image waves-effect waves-block waves-light  ">
-            <img src={this.props.category.Image} />
-
+            <img src={this.props.category.Image} alt="" />
             <span className="card-title">{this.props.category.Name}</span>
           </div>
-
           <div className="card-action">
             <div className="right-align" id="editCardButton">
               <Modal
