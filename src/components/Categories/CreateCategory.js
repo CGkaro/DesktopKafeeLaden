@@ -5,12 +5,18 @@ import { createCategory } from "../../store/actions/CategoriesActions";
 
 class CreateCategory extends Component {
   state = {
+    Id: "",
     Name: "",
     Image: ""
   };
   handleSubmit = e => {
     e.preventDefault();
     this.props.createCategory(this.state);
+    this.setState({
+      Id: "",
+      Name: "",
+      Image: ""
+    });
   };
   handleChange = e => {
     this.setState({
@@ -40,12 +46,14 @@ class CreateCategory extends Component {
             <Input
               label="EXAMPLEID"
               id="Id"
+              value={this.state.Id}
               validate
               onChange={this.handleChange}
             />
             <Input
               label="Category name"
               id="Name"
+              value={this.state.Name}
               validate
               onChange={this.handleChange}
             >
@@ -57,6 +65,7 @@ class CreateCategory extends Component {
             <Input
               label="Or you can post hosting site"
               id="Image"
+              value={this.state.Image}
               validate
               onChange={this.handleChange}
             >

@@ -11,6 +11,10 @@ class EditCategories extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.editCategory(this.state);
+    this.setState({
+      Name: "",
+      Image: ""
+    });
   };
   handleChange = e => {
     this.setState({
@@ -40,6 +44,7 @@ class EditCategories extends Component {
         <Input
           label="Category name"
           id="Name"
+          value={this.state.Name}
           validate
           onChange={this.handleChange}
         >
@@ -51,6 +56,7 @@ class EditCategories extends Component {
         <Input
           label="Or you can post hosting site"
           id="Image"
+          value={this.state.Image}
           validate
           onChange={this.handleChange}
         >

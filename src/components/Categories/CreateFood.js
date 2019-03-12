@@ -5,12 +5,26 @@ import { createFood } from "../../store/actions/FoodActions";
 
 class CreateFood extends Component {
   state = {
+    Id: "",
     Name: "",
-    Image: ""
+    Image: "",
+    Description: "",
+    Discount: "",
+    MenuId: "",
+    Price: ""
   };
   handleSubmit = e => {
     e.preventDefault();
     this.props.createFood(this.state);
+    this.setState({
+      Id: "",
+      Name: "",
+      Image: "",
+      Description: "",
+      Discount: "",
+      MenuId: "",
+      Price: ""
+    });
   };
   handleChange = e => {
     this.setState({
@@ -43,23 +57,32 @@ class CreateFood extends Component {
             className="red darken-2"
             onClick={this.handleSubmit}
           >
-            Add
+            Create
           </Button>
           <Button s={2} flat modal="close" waves="light">
             Close
           </Button>
         </div>
-        <Input label="Id" id="Id" validate onChange={this.handleChange} />
+        <Input
+          label="Id"
+          value={this.state.Id}
+          id="Id"
+          validate
+          onChange={this.handleChange}
+        />
         <Input
           label="Food name"
           id="Name"
+          value={this.state.Name}
           validate
+          val
           onChange={this.handleChange}
         >
           <Icon>account_circle</Icon>
         </Input>
         <Input
           label="Food Description"
+          value={this.state.Description}
           id="Description"
           validate
           onChange={this.handleChange}
@@ -69,6 +92,7 @@ class CreateFood extends Component {
         <Input
           label="Food Discount"
           id="Discount"
+          value={this.state.Discount}
           validate
           onChange={this.handleChange}
         >
@@ -77,6 +101,7 @@ class CreateFood extends Component {
         <Input
           label="Food MenuId"
           id="MenuId"
+          value={this.state.MenuId}
           validate
           onChange={this.handleChange}
         >
@@ -85,6 +110,7 @@ class CreateFood extends Component {
         <Input
           label="Food Price"
           id="Price"
+          value={this.state.Price}
           validate
           onChange={this.handleChange}
         >
@@ -97,6 +123,7 @@ class CreateFood extends Component {
           label="Or you can post image hosting site"
           id="Image"
           validate
+          value={this.state.Image}
           onChange={this.handleChange}
         >
           <Icon>account_circle</Icon>
