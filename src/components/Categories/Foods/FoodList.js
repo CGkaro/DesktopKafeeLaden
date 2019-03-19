@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import { fetchFoods } from "../../store/actions/FoodActions";
-import { fetchCategories } from "../../store/actions/CategoriesActions";
+import { fetchFoods } from "../../../store/actions/FoodActions";
+import { fetchCategories } from "../../../store/actions/CategoriesActions";
 import { connect } from "react-redux";
-import Sidebar from "../layout/Sidebar";
-import FoodsCard from "../Categories/FoodsCard";
+import FoodsCard from "../../Categories/Foods/FoodsCard";
 import { Redirect } from "react-router-dom";
-import CreateFood from "../Categories/CreateFood";
-import "../../css/table.css";
-import SearchNav from "../layout/SearchNav";
-import navcss from "../../css/sidenav.css";
+import CreateFood from "../../Categories/Foods/CreateFood";
+import "../../../css/table.css";
+import SearchNav from "../../layout/SearchNav";
+import navcss from "../../../css/sidenav.css";
 
 class FoodList extends Component {
   constructor(props) {
@@ -27,6 +26,7 @@ class FoodList extends Component {
 
   render() {
     const { foods, categories, auth } = this.props;
+    if (!auth.uid) return <Redirect to="/" />;
     let cons = foods.filter(categ => {
       try {
         if (typeof categ !== "undefined" || null) {
@@ -42,8 +42,6 @@ class FoodList extends Component {
       return parseInt(item.Id, 10);
     });
     console.log("IDS", Math.max.apply(Math, newId) + 1);
-
-    if (!auth.uid) return <Redirect to="/" />;
 
     return (
       <div>
@@ -84,6 +82,7 @@ class FoodList extends Component {
     );
   }
 }
+
 const mapStateToProps = state => {
   console.log("STATE", state);
   return {

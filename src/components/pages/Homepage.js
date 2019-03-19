@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Sidebar from "../layout/Sidebar";
 import { connect } from "react-redux";
-import CategoriesList from "../layout/CategoriesList";
+import CategoriesList from "../Categories/CategoriesList";
 import { fetchCategories } from "../../store/actions/CategoriesActions";
 import { Redirect } from "react-router-dom";
 import SearchNav from "../layout/SearchNav";
@@ -21,6 +20,8 @@ export class Homepage extends Component {
   };
   render() {
     const { categories, auth } = this.props;
+    if (!auth.uid) return <Redirect to="/" />;
+
     let cons = categories.filter(categ => {
       try {
         if (typeof categ !== "undefined" || null) {
@@ -32,8 +33,6 @@ export class Homepage extends Component {
         console.log(err);
       }
     });
-
-    if (!auth.uid) return <Redirect to="/" />;
 
     return (
       <div>

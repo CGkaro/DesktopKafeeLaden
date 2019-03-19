@@ -1,7 +1,6 @@
 import React from "react";
-import CategoryCard from "../Categories/CategoryCard";
-import CreateCategory from "../Categories/CreateCategory";
-import { SideNav } from "react-materialize";
+import CategoryCard from "./CategoryCard";
+import CreateCategory from "./CreateCategory";
 import navcss from "../../css/sidenav.css";
 
 export default function CategoriesList({ categories }) {
