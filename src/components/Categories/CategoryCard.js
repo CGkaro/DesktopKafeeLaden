@@ -14,7 +14,12 @@ class CategoryCard extends Component {
         <div className="card small">
           <div className="card-image waves-effect waves-block waves-light  ">
             <img src={this.props.category.Image} alt="" />
-            <span className="card-title">{this.props.category.Name}</span>
+            <span
+              className="card-title"
+              style={{ background: "rgba(0,0,0,0.3)" }}
+            >
+              {this.props.category.Name}
+            </span>
           </div>
           <div className="card-action">
             <div className="right-align" id="editCardButton">
@@ -39,37 +44,33 @@ class CategoryCard extends Component {
             </div>
 
             <div>
-              <a>
-                <Dropdown
-                  className=""
-                  trigger={
-                    <div className="center-align">
-                      <Button waves="light" className="red  ">
-                        Delete
-                      </Button>
-                    </div>
-                  }
-                >
-                  <li>
-                    <a href="#!">Are you sure?</a>
-                  </li>
+              <Dropdown
+                className=""
+                trigger={
+                  <div className="center-align">
+                    <Button waves="light" className="red  ">
+                      Delete
+                    </Button>
+                  </div>
+                }
+              >
+                <li>
+                  <a href="#!">Are you sure?</a>
+                </li>
 
-                  <Divider />
-                  <li>
-                    <a
-                      href="#!"
-                      onClick={() =>
-                        handleCompleteClick(this.props.category.Id)
-                      }
-                    >
-                      Accept
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!">Close</a>
-                  </li>
-                </Dropdown>
-              </a>
+                <Divider />
+                <li>
+                  <a
+                    href="#!"
+                    onClick={() => handleCompleteClick(this.props.category.Id)}
+                  >
+                    Accept
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">Close</a>
+                </li>
+              </Dropdown>
             </div>
           </div>
         </div>

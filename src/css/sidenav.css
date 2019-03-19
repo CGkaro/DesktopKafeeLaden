@@ -1,0 +1,12 @@
+.wrapper {
+}
+
+@media only screen and (max-width: 992px) {
+  .wrapper {
+    padding-left: 0;
+  }
+}
+.navbar-fixed {
+  color: red;
+  z-index: 999;
+}

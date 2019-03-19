@@ -2,10 +2,11 @@ import fbConfig from "../../config/fbConfig";
 
 export const createFood = category => {
   console.log("createcatreducer", category);
-  fbConfig
-    .ref()
-    .child("Foods/" + category.Id)
-    .set(category);
+  if ((category.Id && category.Name !== null) || undefined || "")
+    fbConfig
+      .ref()
+      .child("Foods/" + category.Id)
+      .set(category);
   return (dispatch, getState) => {
     dispatch({ type: "CREATE_CATEGORY", category });
   };
@@ -36,6 +37,13 @@ export const deleteFood = completeToDoId => async dispatch => {
 
 export const editFoods = category => {
   console.log("EditACtionReducer", category);
+  if (category.Id !== "") {
+    fbConfig
+      .ref()
+      .child("Foods/" + category.Id)
+      .child("Id")
+      .set(category.Id);
+  }
   if (category.Name !== "") {
     fbConfig
       .ref()

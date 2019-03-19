@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Modal, Icon, Input } from "react-materialize";
+import { Button, Modal, Icon, Input, Row } from "react-materialize";
 import { connect } from "react-redux";
 import { createFood } from "../../store/actions/FoodActions";
 
@@ -28,6 +28,7 @@ class CreateFood extends Component {
   };
   handleChange = e => {
     this.setState({
+      Id: this.props.id,
       [e.target.id]: e.target.value
     });
   };
@@ -41,6 +42,12 @@ class CreateFood extends Component {
       left: "auto",
       position: "fixed"
     };
+    const ident = this.props.id;
+    if (ident == "" || undefined || null) {
+      // eslint-disable-next-line no-const-assign
+      ident = 1;
+    }
+    console.log("ident", ident);
     return (
       <Modal
         trigger={
@@ -63,13 +70,7 @@ class CreateFood extends Component {
             Close
           </Button>
         </div>
-        <Input
-          label="Id"
-          value={this.state.Id}
-          id="Id"
-          validate
-          onChange={this.handleChange}
-        />
+
         <Input
           label="Food name"
           id="Name"
@@ -98,15 +99,24 @@ class CreateFood extends Component {
         >
           <Icon>account_circle</Icon>
         </Input>
-        <Input
-          label="Food MenuId"
-          id="MenuId"
-          value={this.state.MenuId}
-          validate
-          onChange={this.handleChange}
-        >
-          <Icon>account_circle</Icon>
-        </Input>
+
+        <Row>
+          <Input
+            id="MenuId"
+            s={12}
+            type="select"
+            label="Materialize Select"
+            defaultValue=""
+            onChange={this.handleChange}
+          >
+            <option disabled>Choose your option</option>
+            <option value="">Default</option>
+            {this.props.category.map(item => {
+              return <option value={item.Id}>{item.Id}</option>;
+            })}
+          </Input>
+        </Row>
+
         <Input
           label="Food Price"
           id="Price"

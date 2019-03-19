@@ -1,10 +1,12 @@
 import React from "react";
 import CategoryCard from "../Categories/CategoryCard";
 import CreateCategory from "../Categories/CreateCategory";
+import { SideNav } from "react-materialize";
+import navcss from "../../css/sidenav.css";
 
 export default function CategoriesList({ categories }) {
   return (
-    <div className="wrapper" style={{ paddingLeft: "300px" }}>
+    <div className="wrapper" style={navcss}>
       <div className="row">
         {categories &&
           categories.map(category => {

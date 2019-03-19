@@ -13,16 +13,15 @@ class FoodsCard extends Component {
 
     return (
       <tr>
-        <td>{this.props.category.Id}</td>
-        <td>{this.props.category.Name}</td>
-        <td>{this.props.category.Description}</td>
-        <td>{this.props.category.Discount}</td>
-        <td>{this.props.category.MenuId}</td>
-        <td>{this.props.category.Price}</td>
+        <td>{this.props.food.Name}</td>
+        <td>{this.props.food.Description}</td>
+        <td>{this.props.food.Discount}</td>
+        <td>{this.props.food.MenuId}</td>
+        <td>{this.props.food.Price}</td>
         <td>
           {/* Modal; */}
           <Modal
-            header={this.props.category.Name}
+            header={this.props.food.Name}
             fixedFooter
             trigger={
               <div>
@@ -33,8 +32,9 @@ class FoodsCard extends Component {
             }
           >
             <EditFoods
-              data={this.props.category.Id}
               category={this.props.category}
+              data={this.props.food.Id}
+              food={this.props.food}
             />
           </Modal>
           {/* Modal end */}
@@ -57,7 +57,7 @@ class FoodsCard extends Component {
 
             <Divider />
             <li>
-              <a onClick={() => handleCompleteClick(this.props.category.Id)}>
+              <a onClick={() => handleCompleteClick(this.props.food.Id)}>
                 Accept
               </a>
             </li>

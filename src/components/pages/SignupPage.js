@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/actions/AuthActions";
+import NavBar from "../layout/Navbar";
 
 class SignupPage extends Component {
   state = {
@@ -26,6 +27,7 @@ class SignupPage extends Component {
     if (auth.uid) return <Redirect to="/" />;
     return (
       <div>
+        <NavBar />
         <div className="container">
           <form className="white" onSubmit={this.handleSumbit}>
             <h5 className="grey-text text-darken-3">Sign Up</h5>
