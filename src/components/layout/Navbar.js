@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
+import { Button, NavItem } from "react-materialize";
 
 class NavBar extends Component {
   state = {};
@@ -9,13 +10,17 @@ class NavBar extends Component {
     console.log("searchnavnac", this.props);
     return (
       <nav>
-        <div class="nav-wrapper">
-          <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <div class="nav-wrapper  #263238 blue-grey darken-4">
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-              <Link to="/">LogIn</Link>
+              <Link to="/">
+                <NavItem>LogIn</NavItem>
+              </Link>
             </li>
             <li>
-              <Link to="/SignUp">SignUp</Link>
+              <Link to="/SignUp">
+                <NavItem>SignUp</NavItem>
+              </Link>
             </li>
           </ul>
         </div>

@@ -105,7 +105,7 @@ class CreateFood extends Component {
             id="MenuId"
             s={12}
             type="select"
-            label="Materialize Select"
+            label="Food MenuId"
             defaultValue=""
             onChange={this.handleChange}
           >

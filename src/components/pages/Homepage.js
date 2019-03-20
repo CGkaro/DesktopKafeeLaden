@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CategoriesList from "../Categories/CategoriesList";
-import { fetchCategories } from "../../store/actions/CategoriesActions";
+import * as actions from "../../store/actions/CategoriesActions";
 import { Redirect } from "react-router-dom";
 import SearchNav from "../layout/SearchNav";
-
+import "../../css/categories.css";
 export class Homepage extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +12,7 @@ export class Homepage extends Component {
       search: ""
     };
   }
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchCategories();
   }
   updateSearch = event => {
@@ -20,6 +20,7 @@ export class Homepage extends Component {
   };
   render() {
     const { categories, auth } = this.props;
+    console.log(this.props, this.state);
     if (!auth.uid) return <Redirect to="/" />;
 
     let cons = categories.filter(categ => {
@@ -49,12 +50,19 @@ export class Homepage extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    categories: Object.values(state.firebase),
-    auth: state.firebaseAuth.auth
-  };
+  if (state.firebase) {
+    return {
+      categories: Object.values(state.firebase),
+      auth: state.firebaseAuth.auth
+    };
+  } else {
+    return {
+      categories: [],
+      auth: state.firebaseAuth.auth
+    };
+  }
 };
 export default connect(
   mapStateToProps,
-  { fetchCategories }
+  actions
 )(Homepage);

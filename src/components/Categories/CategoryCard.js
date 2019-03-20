@@ -10,7 +10,7 @@ class CategoryCard extends Component {
       this.props.deleteCategories(completeToDoId);
     };
     return (
-      <div className="col s3 ">
+      <div className="col s12 m3 l3 " id="card-wrapper">
         <div className="card small">
           <div className="card-image waves-effect waves-block waves-light  ">
             <img src={this.props.category.Image} alt="" />
@@ -24,18 +24,13 @@ class CategoryCard extends Component {
           <div className="card-action">
             <div className="right-align" id="editCardButton">
               <Modal
-                header="Modal Header"
+                header={this.props.category.Name}
                 fixedFooter
                 trigger={
                   <div>
                     <Button floating waves="light" icon="edit">
                       Edit
                     </Button>
-                  </div>
-                }
-                actions={
-                  <div>
-                    <Button>Edit</Button>
                   </div>
                 }
               >

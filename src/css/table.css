@@ -7,6 +7,12 @@
   .custom-container {
     width: 90%;
   }
+  td,
+  th {
+    padding: 40px 4px;
+
+    border-radius: 2px;
+  }
 }
 @media only screen and (min-width: 993px) {
   .custom-container {

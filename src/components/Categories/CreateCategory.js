@@ -26,7 +26,7 @@ class CreateCategory extends Component {
 
   render() {
     return (
-      <div className="col s3 center">
+      <div className="col s12 m3 l3 center">
         <div className="card-panel ">
           <Modal bottomSheet trigger={<Button>Add category</Button>}>
             <div>

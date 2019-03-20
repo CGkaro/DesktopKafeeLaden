@@ -48,7 +48,7 @@ class FoodList extends Component {
         <SearchNav value={this.state.search} action={this.updateSearch} />
 
         <div className="custom-container wrapper" style={navcss}>
-          <table>
+          <table className=" responsive-table centered highlight">
             <thead>
               <tr>
                 <th>Name</th>
@@ -84,12 +84,19 @@ class FoodList extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("STATE", state);
-  return {
-    foods: Object.values(state.foods),
-    categories: Object.values(state.firebase),
-    auth: state.firebaseAuth.auth
-  };
+  if (state.firebase) {
+    return {
+      foods: Object.values(state.foods),
+      categories: Object.values(state.firebase),
+      auth: state.firebaseAuth.auth
+    };
+  } else {
+    return {
+      foods: Object.values(state.foods),
+      categories: [],
+      auth: state.firebaseAuth.auth
+    };
+  }
 };
 export default connect(
   mapStateToProps,

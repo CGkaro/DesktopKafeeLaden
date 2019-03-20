@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import Sidebar from "./Sidebar";
-import { Link } from "react-router-dom";
-import css from "../../css/sidenav.css";
+import "../../css/sidenav.css";
 
 class SearchNav extends Component {
-  state = {};
-
   render() {
-    console.log("searchnavnac", this.props);
     return (
       <div className="top-nav">
         <nav>
-          <div className="nav-wrapper wrapper">
+          <div className="nav-wrapper wrapper  #263238 blue-grey darken-4">
             <Sidebar />
             <form>
               <div className="input-field right">

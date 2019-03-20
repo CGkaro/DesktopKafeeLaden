@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { signOut } from "../../store/actions/AuthActions";
 import { connect } from "react-redux";
-import { SideNav, SideNavItem, Button } from "react-materialize";
+import { SideNav, SideNavItem } from "react-materialize";
+import "../../css/sidenav.css";
 
 const SideBar = props => {
   return (

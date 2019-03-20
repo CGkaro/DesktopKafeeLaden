@@ -7,10 +7,13 @@ export default function CategoriesList({ categories }) {
   return (
     <div className="wrapper" style={navcss}>
       <div className="row">
-        {categories &&
-          categories.map(category => {
-            return <CategoryCard category={category} key={category.id} />;
-          })}
+        {categories
+          ? categories.map(category => {
+              console.log("reached HARA");
+              return <CategoryCard category={category} key={category.id} />;
+            })
+          : console.log("error not found")}
+        {}
         <CreateCategory />
       </div>
     </div>

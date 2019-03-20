@@ -34,7 +34,7 @@ class EditCategories extends Component {
             className="red darken-2"
             onClick={this.handleSubmit}
           >
-            Add
+            Edit
           </Button>
           <Button s={2} flat modal="close" waves="light">
             Close

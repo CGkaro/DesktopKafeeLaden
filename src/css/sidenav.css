@@ -1,6 +1,3 @@
-.wrapper {
-}
-
 @media only screen and (max-width: 992px) {
   .wrapper {
     padding-left: 0;
@@ -9,4 +6,13 @@
 .navbar-fixed {
   color: red;
   z-index: 999;
+}
+.side-nav .userView .name {
+  margin-top: 100px;
+  font-weight: 500;
+}
+.side-nav .userView .name,
+.side-nav .userView .email {
+  font-size: 14px;
+  line-height: 24px;
 }

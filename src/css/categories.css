@@ -1,0 +1,45 @@
+@media only screen and (min-width: 768px) {
+  .card.small {
+    height: 210px !important;
+    width: 185px !important;
+  }
+  #card-wrapper {
+    padding-left: 3px !important;
+  }
+  #editCardButton {
+    font-size: 10px !important;
+    padding-left: 115px !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #card-wrapper {
+    padding-left: 8px !important;
+  }
+  .card.small {
+    height: 210px !important;
+    width: 240px !important;
+  }
+  #editCardButton {
+    font-size: 12px !important;
+    padding-left: 160px !important;
+    margin-bottom: 12px !important;
+  }
+}
+@media screen and (min-width: 1295px) {
+  #card-wrapper {
+    font-size: 14px !important;
+    padding-left: 10px !important;
+    margin-bottom: 1px !important;
+  }
+  .card.small {
+    height: 260px !important;
+    width: 360px !important;
+  }
+  #editCardButton {
+    font-size: 16px !important;
+    padding-left: 100px !important;
+    margin-bottom: 1px !important;
+  }
+}
