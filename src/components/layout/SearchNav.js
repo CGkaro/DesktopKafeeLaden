@@ -18,7 +18,7 @@ class SearchNav extends Component {
                   onChange={this.props.action.bind(this)}
                   required
                 />
-                <label className="label-icon " for="search">
+                <label className="label-icon ">
                   <i className="material-icons">search</i>
                 </label>
                 <i className="material-icons">close</i>

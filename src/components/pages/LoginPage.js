@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signIn } from "../../store/actions/AuthActions";
 import { Redirect } from "react-router-dom";
-import SearchNav from "../layout/SearchNav";
 import NavBar from "../layout/Navbar";
+//import "../../css/login.css";
 
 export class LoginPage extends Component {
   state = {
@@ -23,13 +23,13 @@ export class LoginPage extends Component {
     const { authError, auth } = this.props;
     if (auth.uid) return <Redirect to="/Homepage" />;
     return (
-      <div>
+      <div className="loginPage">
         <NavBar />
-        <div className="container">
-          <form className="white" onSubmit={this.handleSubmit}>
+        <div className="container ">
+          <form onSubmit={this.handleSubmit}>
             <h5 className="grey-text text-darken-3">Sign In</h5>
 
-            <div className="input-field">
+            <div className="input-field ">
               <label htmlFor="email">email</label>
               <input type="email" id="email" onChange={this.handleChange} />
             </div>

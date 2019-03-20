@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
-import { Button, NavItem } from "react-materialize";
+import { NavItem } from "react-materialize";
 
 class NavBar extends Component {
   state = {};

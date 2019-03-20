@@ -29,7 +29,7 @@ class SignupPage extends Component {
       <div>
         <NavBar />
         <div className="container">
-          <form className="white" onSubmit={this.handleSumbit}>
+          <form className="" onSubmit={this.handleSumbit}>
             <h5 className="grey-text text-darken-3">Sign Up</h5>
 
             <div className="input-field">
