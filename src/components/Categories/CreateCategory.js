@@ -2,13 +2,25 @@ import React, { Component } from "react";
 import { Modal, Button, Input, Icon } from "react-materialize";
 import { connect } from "react-redux";
 import { createCategory } from "../../store/actions/CategoriesActions";
+import { storage } from "../../config/fbConfig";
+import UploadImage from "../layout/UploadImage";
 
 class CreateCategory extends Component {
-  state = {
-    Id: "",
-    Name: "",
-    Image: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      Id: "",
+      Name: "",
+      Image: "",
+      Url: null,
+      Progress: null
+    };
+    this.handleUploadChange = this.handleChangeUpload.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.createCategory(this.state);
@@ -24,11 +36,50 @@ class CreateCategory extends Component {
     });
   };
 
+  handleUpload = e => {
+    const { Url } = this.state;
+
+    let uploadTask = storage.ref(`Images/${Url.name}`).put(Url);
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        this.setState({
+          Progress: progress
+        });
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+          console.log("File available at", downloadURL);
+          this.setState({
+            Image: downloadURL
+          });
+        });
+      }
+    );
+  };
+
+  handleChangeUpload = e => {
+    console.log(e);
+
+    this.setState({
+      Url: e.target.files[0]
+    });
+  };
+
   render() {
     return (
       <div className="col s12 m3 l3 center">
         <div className="card-panel ">
-          <Modal bottomSheet trigger={<Button>Add category</Button>}>
+          <Modal bottomSheet trigger={<Button waves>Add category</Button>}>
             <div>
               <Button
                 s={2}
@@ -60,7 +111,18 @@ class CreateCategory extends Component {
               <Icon>account_circle</Icon>
             </Input>
 
-            <Input type="file" label="File" placeholder="Upload Image" />
+            <div className="progress">
+              <div
+                className="determinate"
+                style={{ width: `${this.state.progress} %` }}
+              />
+            </div>
+
+            <UploadImage
+              changeUpload={this.handleUpload}
+              handleChangeUpload={this.handleChangeUpload}
+              progress={this.state.Progress}
+            />
 
             <Input
               label="Or you can post hosting site"

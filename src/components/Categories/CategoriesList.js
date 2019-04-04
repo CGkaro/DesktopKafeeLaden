@@ -3,6 +3,8 @@ import CategoryCard from "./CategoryCard";
 import CreateCategory from "./CreateCategory";
 import navcss from "../../css/sidenav.css";
 
+import "../../css/categories.css";
+
 export default function CategoriesList({ categories }) {
   return (
     <div className="wrapper" style={navcss}>

@@ -1,31 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { NavItem } from "react-materialize";
-
-class NavBar extends Component {
-  state = {};
-
-  render() {
-    console.log("searchnavnac", this.props);
-    return (
+import Sidebar from "./Sidebar";
+import { SideNav, SideNavItem } from "react-materialize";
+//import M from "materialize-css";
+export default NavBar => {
+  return (
+    <div className="top-nav navbar-fixed ">
       <nav>
-        <div class="nav-wrapper  #263238 blue-grey darken-4">
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>
-              <Link to="/">
-                <NavItem>LogIn</NavItem>
-              </Link>
-            </li>
-            <li>
-              <Link to="/SignUp">
-                <NavItem>SignUp</NavItem>
-              </Link>
-            </li>
-          </ul>
+        <div className="nav-wrapper wrapper  #263238 blue-grey darken-4">
+          <SideNav
+            options={{ closeOnClick: true }}
+            trigger={
+              <a href="" className="button-collapse">
+                <i className="material-icons">menu</i>
+              </a>
+            }
+          >
+            <Link to="/SignUp">SignUp</Link>
+            <Link to="/">LogIn</Link>
+            <SideNavItem divider />
+            <SideNavItem subheader>addendum</SideNavItem>
+          </SideNav>
         </div>
       </nav>
-    );
-  }
-}
-
-export default NavBar;
+    </div>
+  );
+};

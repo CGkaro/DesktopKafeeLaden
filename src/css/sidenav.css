@@ -3,7 +3,7 @@
     padding-left: 0;
   }
 }
-.navbar-fixed {
+.sidenav {
   color: red;
   z-index: 999;
 }
@@ -15,4 +15,7 @@
 .side-nav .userView .email {
   font-size: 14px;
   line-height: 24px;
+}
+#sidenav-overlay {
+  z-index: 996;
 }

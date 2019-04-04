@@ -5,7 +5,7 @@ import "../../css/sidenav.css";
 class SearchNav extends Component {
   render() {
     return (
-      <div className="top-nav">
+      <div className="top-nav navbar-fixed ">
         <nav>
           <div className="nav-wrapper wrapper  #263238 blue-grey darken-4">
             <Sidebar />

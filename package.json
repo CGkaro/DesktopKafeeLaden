@@ -8,6 +8,7 @@
     "electron-builder": "^20.38.5",
     "electron-is-dev": "^1.0.1",
     "firebase": "^5.8.4",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-materialize": "^2.6.0",
@@ -16,6 +17,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "react-transition-group": "^2.7.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "wait-on": "^3.2.0"

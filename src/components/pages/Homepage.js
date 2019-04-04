@@ -4,7 +4,6 @@ import CategoriesList from "../Categories/CategoriesList";
 import * as actions from "../../store/actions/CategoriesActions";
 import { Redirect } from "react-router-dom";
 import SearchNav from "../layout/SearchNav";
-import "../../css/categories.css";
 export class Homepage extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +41,6 @@ export class Homepage extends Component {
           action={this.updateSearch}
           auth={auth}
         />
-
         <CategoriesList categories={cons} />
       </div>
     );

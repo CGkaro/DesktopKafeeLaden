@@ -40,10 +40,9 @@ class CategoryCard extends Component {
 
             <div>
               <Dropdown
-                className=""
                 trigger={
                   <div className="center-align">
-                    <Button waves="light" className="red  ">
+                    <Button waves="light" className="red">
                       Delete
                     </Button>
                   </div>

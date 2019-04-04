@@ -33,7 +33,7 @@ class SideBar extends Component {
         options={{ closeOnClick: true }}
         trigger={
           <a href="" className="button-collapse">
-            <i class="material-icons">menu</i>
+            <i className="material-icons">menu</i>
           </a>
         }
       >
